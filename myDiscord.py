@@ -69,6 +69,18 @@ def logedScreen():
     text_surface = my_font.render("Discart", False, (230, 231, 234))
     screen.blit(text_surface, (10, 0))
     
+    pygame.draw.rect(screen, (56, 58, 64), (5, 640, 20, 20))
+    #pygame.draw.line(screen, (255, 0, 0), (7, 642), (23, 658), width = 3)
+    #pygame.draw.line(screen, (255, 0, 0), (23, 642), (7, 658), width = 3)
+    
+    pygame.draw.line(screen, (0, 255, 0), (7, 648), (13, 654), width = 3)
+    pygame.draw.line(screen, (0, 255, 0), (13, 654), (23, 644), width = 3)
+    
+    pygame.draw.rect(screen, (56, 58, 64), (35, 640, 20, 20))
+    pygame.draw.rect(screen, (230, 10, 12), (40, 642, 10, 16))
+    pygame.draw.rect(screen, (56, 58, 64), (42, 644, 6, 12))
+    pygame.draw.circle(screen, (230, 10, 12), (47, 649), 1)
+    
     pygame.draw.rect(screen, (56, 58, 64), (120, 640, 360, 40))
     pygame.draw.circle(screen, (49, 51, 56), (30, 60), 25)
     pygame.draw.circle(screen, (230, 231, 234), (30,50), 9)
@@ -135,7 +147,6 @@ while running:
                 actual = -1
             if event.type == pygame.MOUSEBUTTONUP:
                 xy = pygame.mouse.get_pos()
-                
                 if 150 <= xy[0] <= 350 and 200 <= xy[1] <= 220:txt = 0
                 elif 150 <= xy[0] <= 350 and 250 <= xy[1] <= 270:txt = 1
                 elif 150 <= xy[0] <= 350 and 300 <= xy[1] <= 320:txt = 2
@@ -178,6 +189,8 @@ while running:
                         text_surface = my_font.render(register[a], False, (20,21,24))
                         screen.blit(text_surface, (142, 200 + a * 50))
         pygame.display.flip()            
+    
+    
     if actual == 2:
         logedScreen()
         logedWrite = ""
@@ -187,6 +200,7 @@ while running:
         temp = mycursor.fetchall()
         text_surface = my_font.render("ID : " + str(temp[0][0]), False, (230,231,234))
         screen.blit(text_surface, (9 - (len(str(temp[0][0])) - 1) * 4, 675))
+    
     while actual == 2:
         for event in pygame.event.get():
             print(event)
@@ -196,8 +210,20 @@ while running:
             if event.type == pygame.MOUSEBUTTONUP:
                 xy = pygame.mouse.get_pos()
                 if 120 <= xy[0] <= 480 and 640 <= xy[1] <= 680:txt = 0
-                elif 5 <= xy[0] <= 55 and 35 <= xy[1] <= 85:loged = 1
-                
+                elif 5 <= xy[0] <= 55 and 35 <= xy[1] <= 85 and loged == 0:
+                    loged = 1
+                    pygame.draw.circle(screen, (230, 231, 234), (30, 60), 25)
+                    pygame.draw.circle(screen, (49, 51, 56), (30,50), 9)
+                    pygame.draw.rect(screen, (49, 51, 56), (16, 58, 28, 16))
+                    
+                elif 5 <= xy[0] <= 55 and 35 <= xy[1] <= 85 and loged == 1:
+                    loged = 0
+                    pygame.draw.circle(screen, (49, 51, 56), (30, 60), 25)
+                    pygame.draw.circle(screen, (230, 231, 234), (30,50), 9)
+                    pygame.draw.rect(screen, (230, 231, 234), (16, 58, 28, 16))
+                elif 35 <= xy[0] <= 55 and 640 <= xy[1] <= 660:
+                    actual = 0
+
         pygame.display.flip()
         
 pygame.quit()
