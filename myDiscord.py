@@ -1,6 +1,7 @@
 import pygame
 import mysql.connector
 
+
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -10,13 +11,16 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
+
 pygame.init()
 pygame.font.init()
 screen = pygame.display.set_mode([500, 700])
 my_font = pygame.font.SysFont('Comic Sans MS', 14)
 screen.fill((30, 31, 34))
 
+
 def loginScreen():
+    
     screen.fill((30, 31, 34))
     text_surface = my_font.render("Email", False, (230, 231, 234))
     screen.blit(text_surface, (235, 280))
@@ -34,14 +38,18 @@ def loginScreen():
     text_surface = my_font.render("Login", False, (230, 231, 234))
     screen.blit(text_surface, (305, 400))
 
+
 def registerScreen():
+    
     screen.fill((30, 31, 34))
     title = ["Name", "First Name", "Email", "Password", "re-Password"]
     coord = [(235, 180), (224, 230), (235, 280), (227, 330), (220, 380)]
+    
     for a in range(len(title)):
         text_surface = my_font.render(title[a], False, (230, 231, 234))
         screen.blit(text_surface, coord[a])
         pygame.draw.rect(screen, (240, 241, 244), (140, 200 + 50 * a, 220, 20))
+        
     pygame.draw.rect(screen, (50, 51, 54), (250, 470, 100, 20))
     text_surface = my_font.render("Register", False, (230, 231, 234))
     screen.blit(text_surface, (275, 470))
@@ -53,24 +61,32 @@ def registerScreen():
     text_surface = my_font.render("Login", False, (230, 231, 234))
     screen.blit(text_surface, (160, 470))
 
+
 def logedScreen():
+    
     screen.fill((30, 31, 34))
     pygame.draw.rect(screen, (49, 51, 56), (60, 20, 460, 680))
     text_surface = my_font.render("Discart", False, (230, 231, 234))
     screen.blit(text_surface, (10, 0))
     
     pygame.draw.rect(screen, (56, 58, 64), (120, 640, 360, 40))
-    pygame.draw.circle(screen, (49,51,56), (28,45), 20)
+    pygame.draw.circle(screen, (49, 51, 56), (30, 60), 25)
+    pygame.draw.circle(screen, (230, 231, 234), (30,50), 9)
+    pygame.draw.rect(screen, (230, 231, 234), (16, 58, 28, 16))
+
 
 running = True
 actual = 0
 txt = False
+
 while running:
+    
     if actual == 0:
         loginScreen()
         loginEmail = ""
         loginPassword = ""
         login = [loginEmail, loginPassword]
+    
     while actual == 0:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -106,10 +122,12 @@ while running:
                         screen.blit(text_surface, (142, 300 + a * 50))
         pygame.display.flip()
     
+    
     if actual == 1:
         registerScreen()
         registerName, registerFirstName, registerEmail, registerPassword, registerRe_Password = ("",)*5
         register = [registerName, registerFirstName, registerEmail, registerPassword, registerRe_Password]
+    
     while actual == 1:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -139,6 +157,10 @@ while running:
                             
                             mycursor.execute('INSERT INTO login (name, firstname, email, password) VALUES ("{}", "{}", "{}", "{}");'.format(register[0], register[1], register[2], register[3]))
                             mydb.commit()
+                            mycursor.execute('SELECT * FROM login;')
+                            temp = mycursor.fetchall()
+                            mycursor.execute("CREATE TABLE user" + str(temp[-1][0]) + "(source varchar (255), txt text, hour int);")
+                            mydb.commit()
                             actual = 0
                 else:txt = False
             letter = str(event)
@@ -159,6 +181,12 @@ while running:
     if actual == 2:
         logedScreen()
         logedWrite = ""
+        loged = 0
+        
+        mycursor.execute('select id from login where email = "' + login[0] + '" and password = "' + login[1] + '";')
+        temp = mycursor.fetchall()
+        text_surface = my_font.render("ID : " + str(temp[0][0]), False, (230,231,234))
+        screen.blit(text_surface, (9 - (len(str(temp[0][0])) - 1) * 4, 675))
     while actual == 2:
         for event in pygame.event.get():
             print(event)
@@ -168,6 +196,8 @@ while running:
             if event.type == pygame.MOUSEBUTTONUP:
                 xy = pygame.mouse.get_pos()
                 if 120 <= xy[0] <= 480 and 640 <= xy[1] <= 680:txt = 0
+                elif 5 <= xy[0] <= 55 and 35 <= xy[1] <= 85:loged = 1
+                
         pygame.display.flip()
         
 pygame.quit()
