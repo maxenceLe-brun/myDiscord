@@ -8,11 +8,11 @@ i've started working on this very early, but i'm proud of what i made in a short
 
 
 patch note 0.1: 4/18/23 5:50 AM
-*App still under development  
-*you can register and login  
-*the VC is ready but not implemented  
-*you can't log out without closing the window  
-*you can only create one account by email  
-*your password need a minimum of 6 characters  
-*nothing is hosted, so actually it's only local  
+* App still under development  
+* you can register and login  
+* the VC is ready but not implemented  
+* you can't log out without closing the window  
+* you can only create one account by email  
+* your password need a minimum of 6 characters  
+* nothing is hosted, so actually it's only local  
   
