@@ -215,7 +215,6 @@ while running:
                     pygame.draw.circle(screen, (230, 231, 234), (30, 60), 25)
                     pygame.draw.circle(screen, (49, 51, 56), (30,50), 9)
                     pygame.draw.rect(screen, (49, 51, 56), (16, 58, 28, 16))
-                    
                 elif 5 <= xy[0] <= 55 and 35 <= xy[1] <= 85 and loged == 1:
                     loged = 0
                     pygame.draw.circle(screen, (49, 51, 56), (30, 60), 25)
@@ -223,7 +222,7 @@ while running:
                     pygame.draw.rect(screen, (230, 231, 234), (16, 58, 28, 16))
                 elif 35 <= xy[0] <= 55 and 640 <= xy[1] <= 660:
                     actual = 0
-
+                else:txt = False
         pygame.display.flip()
         
 pygame.quit()
