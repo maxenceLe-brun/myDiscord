@@ -16,3 +16,9 @@ patch note 0.1: 4/18/23 5:50 AM
 * your password need a minimum of 6 characters  
 * nothing is hosted, so actually it's only local  
   
+patch note 0.2: 4/18/23 11:03 AM
+* You can now log-out from your account
+* Your ID is now shown on the left corner
+* The "Friend" button can only be triggered, nothing will really happen
+* each account will have his own SQL table for each messages he receives
+* added the slot for the vocal button, but still in development
