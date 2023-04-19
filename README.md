@@ -5,7 +5,33 @@ you can log-in, chat with other people, interact with them etc etc
 It's not finished yet, but feel free to check and report me any bugs!  
 i've started working on this very early, but i'm proud of what i made in a short amount of time  
 
+# French information about the dev state
 
+"Développer votre version de Discord sur un thème choisi,
+avec l’interface graphique de votre choix."
+interface faite main
+
+"Le programme doit permettre à plusieurs personnes de communiquer, grâce à des canaux textuelles et vocales, publique et privée."
+la communication a commencé, mais pas dev
+
+"À chaque connexion, l’utilisateur récupère l’ensemble des messages déjà postés. Chaque message doit posséder l’heure de publication et son auteur."
+tous est enregistré dans une base sql qui porte le nom de "userN" ou N est l'ID de l'utilisateur
+
+"Plusieurs channels doivent être mis à dispositions des utilisateurs."
+Il y en a un, mais vide
+
+"Un utilisateur doit pouvoir se connecter ou se créer son compte afin d’avoir accès au channel principale."
+All good
+
+"Les informations nécessaires à l’inscription sont : un nom, prénom, mail et mot de passe."
+All good
+
+"Un bouton déconnexion doit être implémenté, renvoyant l’utilisateur sur la page de connexion."
+All good
+
+"Dans ce projet, vous devez utiliser les classes (une classe par fichier) et une base de données nommée “myDiscord.sql” avec plusieurs tables."
+j'ai utilisé des classes, mais pas que
+base de donnée ok
 
 # Patch history
 
