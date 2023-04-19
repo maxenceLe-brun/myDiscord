@@ -32,3 +32,12 @@ patch note 0.3: 4/19/23 4:55 AM
 * Vocal has encountered a prolem : only local vc work
 * The debogage system will be removed next time
 * The SQL Database will update soon!
+
+patch note 0.4: 4/19/23 5:44 AM 
+* You can now write to your friends, but they won't see it
+* Press enter to send the message, no button to click on!
+* New target system to messages
+* Time module imported
+* Debug mode still there for upcomming changes
+* The SQL Database encountered problems with plesk, not comming soon as we would
+* The friend request and list is being in rework!
