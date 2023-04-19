@@ -7,44 +7,44 @@ i've started working on this very early, but i'm proud of what i made in a short
 
 # French informations about the dev state
 
-"Développer votre version de Discord sur un thème choisi,
-avec l’interface graphique de votre choix."
-interface faite main
+"Développer votre version de Discord sur un thème choisi,  
+avec l’interface graphique de votre choix."  
+interface faite main  
 
-"Le programme doit permettre à plusieurs personnes de communiquer, grâce à des canaux textuelles et vocales, publique et privée."
-la communication a commencé, mais pas dev
-Pour essayer le vocal, voir avec "main.py" et "myDiscord_Server.py", mettre son ip dans ces deux fichiers
-Le vocal marche, mais il n'est pa implémenté
+"Le programme doit permettre à plusieurs personnes de communiquer, grâce à des canaux textuelles et vocales, publique et privée."  
+la communication a commencé, mais pas dev  
+Pour essayer le vocal, voir avec "main.py" et "myDiscord_Server.py", mettre son ip dans ces deux fichiers  
+Le vocal marche, mais il n'est pa implémenté  
 
-"À chaque connexion, l’utilisateur récupère l’ensemble des messages déjà postés. Chaque message doit posséder l’heure de publication et son auteur."
-tous est enregistré dans une base sql qui porte le nom de "userN" ou N est l'ID de l'utilisateur
-l'auteur du message est affiché par son ID de compte
-l'heure est l'heure actuelle sans les ":"
-nous avons donc une base de donnée par utilisateur qui stoque chaque message qu'il reçoit
+"À chaque connexion, l’utilisateur récupère l’ensemble des messages déjà postés. Chaque message doit posséder l’heure de publication et son auteur."  
+tous est enregistré dans une base sql qui porte le nom de "userN" ou N est l'ID de l'utilisateur  
+l'auteur du message est affiché par son ID de compte  
+l'heure est l'heure actuelle sans les ":"  
+nous avons donc une base de donnée par utilisateur qui stoque chaque message qu'il reçoit  
 
-"Plusieurs channels doivent être mis à dispositions des utilisateurs."
-Il y en a un, mais vide
-cliquer sur le cercle en haut a gauche nour permet d'y "acceder" mais presque rien est fait
+"Plusieurs channels doivent être mis à dispositions des utilisateurs."  
+Il y en a un, mais vide  
+cliquer sur le cercle en haut a gauche nour permet d'y "acceder" mais presque rien est fait  
 
-"Un utilisateur doit pouvoir se connecter ou se créer son compte afin d’avoir accès au channel principale."
-Tout bon
-Lors du chargement du programme, on arrive sur la page pour log-in, avec 2 boutons
-a gauche pour l'inscription, a droite pour se connecter a son compte
-il suffit de cliquer sur une case blanche pour y écrire dedans
+"Un utilisateur doit pouvoir se connecter ou se créer son compte afin d’avoir accès au channel principale."  
+Tout bon  
+Lors du chargement du programme, on arrive sur la page pour log-in, avec 2 boutons  
+a gauche pour l'inscription, a droite pour se connecter a son compte  
+il suffit de cliquer sur une case blanche pour y écrire dedans  
 
-"Les informations nécessaires à l’inscription sont : un nom, prénom, mail et mot de passe."
-Tout bon
-Pour créer un compte, le nom de famille doit comporter un caractère au minimum, le prénom deux,
-l'email doit en avoir 12 avec un "@" dedans, le mot de passe doit avoir 6 caractères min, et confirmer celui ci
+"Les informations nécessaires à l’inscription sont : un nom, prénom, mail et mot de passe."  
+Tout bon  
+Pour créer un compte, le nom de famille doit comporter un caractère au minimum, le prénom deux,  
+l'email doit en avoir 12 avec un "@" dedans, le mot de passe doit avoir 6 caractères min, et confirmer celui ci  
+  
+"Un bouton déconnexion doit être implémenté, renvoyant l’utilisateur sur la page de connexion."  
+Tout bon  
+le bouton est peut être un peu petit  
 
-"Un bouton déconnexion doit être implémenté, renvoyant l’utilisateur sur la page de connexion."
-Tout bon
-le bouton est peut être un peu petit
-
-"Dans ce projet, vous devez utiliser les classes (une classe par fichier) et une base de données nommée “myDiscord.sql” avec plusieurs tables."
-j'ai utilisé des classes, mais pas que
-base de donnée ok
-
+"Dans ce projet, vous devez utiliser les classes (une classe par fichier) et une base de données nommée “myDiscord.sql” avec plusieurs tables."  
+j'ai utilisé des classes, mais pas que  
+base de donnée ok  
+    
 # Patch history
 
 
