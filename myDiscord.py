@@ -196,11 +196,26 @@ while running:
         logedWrite = ""
         loged = 0
         
-        mycursor.execute('select id from login where email = "' + login[0] + '" and password = "' + login[1] + '";')
-        temp = mycursor.fetchall()
+        
         text_surface = my_font.render("ID : " + str(temp[0][0]), False, (230,231,234))
         screen.blit(text_surface, (9 - (len(str(temp[0][0])) - 1) * 4, 675))
-    
+        
+        mycursor.execute('select id from login where email = "' + login[0] + '" and password = "' + login[1] + '";')
+        temp = mycursor.fetchall()
+        if len(temp) > 0:
+            print(temp, str(temp[0]))
+            mycursor.execute('select * from user' + str(temp[0][0]) + ';')
+            temp = mycursor.fetchall()
+            n = 0
+            N = []
+            for a in range(len(temp)):
+                if temp[a][0] not in N:
+                    N.append(temp[a][0])
+                    n+=1
+                    pygame.draw.circle(screen, (49, 51, 56), (30, 120 + 60 * a), 25)
+                    text_surface = my_font.render(str(temp[a][0]), False, (240, 241, 244))
+                    screen.blit(text_surface, (27, 115 + 60 * a))
+                    
     while actual == 2:
         for event in pygame.event.get():
             print(event)
