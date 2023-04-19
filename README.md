@@ -5,7 +5,7 @@ you can log-in, chat with other people, interact with them etc etc
 It's not finished yet, but feel free to check and report me any bugs!  
 i've started working on this very early, but i'm proud of what i made in a short amount of time  
 
-# French information about the dev state
+# French informations about the dev state
 
 "Développer votre version de Discord sur un thème choisi,
 avec l’interface graphique de votre choix."
