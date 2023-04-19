@@ -7,6 +7,9 @@ i've started working on this very early, but i'm proud of what i made in a short
 
 
 
+# Patch history
+
+
 patch note 0.1: 4/18/23 5:50 AM
 * App still under development  
 * you can register and login  
@@ -22,3 +25,10 @@ patch note 0.2: 4/18/23 11:03 AM
 * The "Friend" button can only be triggered, nothing will really happen
 * each account will have his own SQL table for each messages he receives
 * added the slot for the vocal button, but still in development
+
+patch note 0.3: 4/19/23 4:55 AM
+* You can now see your friends on the left
+* SQL Database don't work when host on plesk, can't put it online
+* Vocal has encountered a prolem : only local vc work
+* The debogage system will be removed next time
+* The SQL Database will update soon!
