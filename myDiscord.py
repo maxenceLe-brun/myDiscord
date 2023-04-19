@@ -1,5 +1,6 @@
 import pygame
 import mysql.connector
+import time
 
 
 mydb = mysql.connector.connect(
@@ -195,13 +196,13 @@ while running:
         logedScreen()
         logedWrite = ""
         loged = 0
-        
-        
+        target = 5
         text_surface = my_font.render("ID : " + str(temp[0][0]), False, (230,231,234))
         screen.blit(text_surface, (9 - (len(str(temp[0][0])) - 1) * 4, 675))
         
         mycursor.execute('select id from login where email = "' + login[0] + '" and password = "' + login[1] + '";')
         temp = mycursor.fetchall()
+        myID = temp[0][0]
         if len(temp) > 0:
             print(temp, str(temp[0]))
             mycursor.execute('select * from user' + str(temp[0][0]) + ';')
@@ -217,6 +218,7 @@ while running:
                     screen.blit(text_surface, (27, 115 + 60 * a))
                     
     while actual == 2:
+        
         for event in pygame.event.get():
             print(event)
             if event.type == pygame.QUIT:
@@ -238,6 +240,25 @@ while running:
                 elif 35 <= xy[0] <= 55 and 640 <= xy[1] <= 660:
                     actual = 0
                 else:txt = False
+            letter = str(event)
+            if event.type == pygame.KEYUP and letter[30:34] == "\\x08" and txt >= 0 and str(txt) != "False":
+                if len(logedWrite) > 0:
+                    logedWrite = logedWrite[:-1]
+                    pygame.draw.rect(screen, (49, 51, 56), (60, 20, 460, 680))
+                    pygame.draw.rect(screen, (56, 58, 64), (120, 640, 360, 40))
+                    text_surface = my_font.render(logedWrite, False, (230, 231, 234))
+                    screen.blit(text_surface, (122, 650))
+            if event.type == pygame.TEXTINPUT and txt >= 0 and str(txt) != "False":
+                if len(logedWrite) <= 48:
+                    logedWrite += letter[31]
+                    text_surface = my_font.render(logedWrite, False, (230, 231, 234))
+                    screen.blit(text_surface, (122, 650))
+            if event.type == pygame.KEYUP and letter[30:32] == "\\r" and txt >= 0 and str(txt) != "False" and target:
+                mycursor.execute('insert into user'+str(target)+'(source, txt, hour) values('+str(myID)+', "'+logedWrite+'", ' + time.ctime()[11:19].replace(":","")+');')
+                mydb.commit()
+                logedWrite = ""
+                pygame.draw.rect(screen, (49, 51, 56), (60, 20, 460, 680))
+                pygame.draw.rect(screen, (56, 58, 64), (120, 640, 360, 40))
         pygame.display.flip()
         
 pygame.quit()
